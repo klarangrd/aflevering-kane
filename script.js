@@ -1,4 +1,4 @@
-// Globale variabler til at gemme albums(json) og tabelreferencer 
+// globale variabler til at gemme albums(json) og tabelreferencer 
 let albums = []; //indeholder en liste over albumData da det er en tom array
 const albumTable = document.getElementById('albumTable');
 const genres = document.getElementById('genres');
@@ -9,7 +9,7 @@ const filterButton = document.getElementById('filterButton'); // linje 3-6 søge
 fetch('albums.json')
     .then(response => response.json())
     .then(data => {
-        // Tilføj genre-property
+        // tilføjer genre-property
         albums = data.map(album => {
             album.genre = album.genre || 'Ukendt';
             return album;
