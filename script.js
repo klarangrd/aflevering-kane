@@ -1,11 +1,11 @@
-// Globale variabler til at gemme musikdata og tabelreferencer
-let albums = [];
+// Globale variabler til at gemme albums(json) og tabelreferencer 
+let albums = []; //indeholder en liste over albumData da det er en tom array
 const albumTable = document.getElementById('albumTable');
 const genres = document.getElementById('genres');
 const tableBody = document.getElementById('tableBody');
-const filterButton = document.getElementById('filterButton');
+const filterButton = document.getElementById('filterButton'); // linje 3-6 søger efter html elementerne table, select, tbody og button
 
-// Læs JSON-filen og vis data
+// en asynkron function til at indhente json filen
 fetch('albums.json')
     .then(response => response.json())
     .then(data => {
@@ -15,16 +15,16 @@ fetch('albums.json')
             return album;
         });
 
-        // Funktion til at opdatere visningen af album
+        //function der gør at visningen af albums opdateres
         function updateAlbumsView() {
-            const selectedGenre = genres.value;
-            const filteredAlbums = albums.filter(
+            const selectedGenre = genres.value; //indeholder den valgte genre, som man har valgt fra dropdown-menuen
+            const filteredAlbums = albums.filter( 
                 album => selectedGenre === 'All' || album.genre === selectedGenre
             );
 
-            tableBody.innerHTML = ''; // Ryd container
+            tableBody.innerHTML = ''; // al indhold i <tbody> med id'en 'tableBody'  fjernes
 
-            // Vis hvert album i tabellen
+            // hvad vi gerne vil have vist inde i vores tabel fra html aka album, artist og genre
             filteredAlbums.forEach(album => {
                 const row = tableBody.insertRow();
 
@@ -39,10 +39,10 @@ fetch('albums.json')
             });
         }
 
-        // Opdater visning ved start og ved filtrering
+        //hente data, filtrere og opdatere visningen i din musikarkivapplikation
         updateAlbumsView();
-        filterButton.addEventListener('click', updateAlbumsView);
+        filterButton.addEventListener('click', updateAlbumsView); //klik på knappen  = funktionen updateAlbumsView()  skal køres for at opdatere 
     })
-    .catch(error => {
+    .catch(error => { //fejl opstår = udførelse af koden inde i blokken of udskriver en fejlmeddelelse 
         console.error('Fejl ved hentning af data:', error);
     });
