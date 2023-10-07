@@ -1,1 +1,40 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aflevering 3 Gruppe Kane</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    <h1 id="head">Musikarkiv</h1>
+
+    <!-- Dropdown menuen -->
+    <label for="genres">Vælg Genre</label>
+    <select id="genres">
+        <option value="All">Alle</option>
+        <option value="Rock">Rock</option>
+        <option value="Alternative">Alternative</option>
+        <option value="Pop">Pop</option>
+        <option value="Funk">Funk</option>
+      </select>
+
+      <!-- En knap til at filtrere - tilføj funktion -->
+      <button id="filterButton">Filtrer</button>
+
+      <!--table-->
+      <table id="albumTable">
+        <thead id="tableHead">
+          <tr>
+            <th>Album</th>
+            <th>Kunstner</th>
+            <th>Genre</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
