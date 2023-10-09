@@ -25,7 +25,6 @@ fetch('albums.json')
             if (albumNameA > albumNameB) {
                 return 1; // a skal være efter b
             }
-            return 0; // a og b er ens
         });
 
 
