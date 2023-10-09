@@ -14,6 +14,19 @@ fetch('albums.json')
             album.genre = album.genre || 'Ukendt';
             return album;
         });
+        // Alfabetisk sortering af albumnavnene
+        albums.sort(function(a, b) {
+            const albumNameA = a.albumName;
+            const albumNameB = b.albumName;
+
+            if (albumNameA < albumNameB) {
+                return -1; // a skal være før b
+            }
+            if (albumNameA > albumNameB) {
+                return 1; // a skal være efter b
+            }
+            return 0; // a og b er ens
+        });
 
 
         //function der gør at visningen af albums opdateres
@@ -25,7 +38,7 @@ fetch('albums.json')
 
             
             /*hvis det evt skulle gøres med en if-else-funktion i stedet
-            
+
             let filteredAlbums;
             if (selectedGenre === 'All') {
                 filteredAlbums = albums;
