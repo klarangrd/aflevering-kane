@@ -15,6 +15,15 @@ fetch('albums.json')
             return album;
         });
 
+        albums.sort(function(a,b)  {
+            if (a.albumName < b.albumName) {
+                return -1; // a skal være før b
+            }
+            if (a.albumName > a.albumName) {
+                return 1; // a skal være efter b
+            }
+        });
+        
         //function der gør at visningen af albums opdateres
         function updateAlbumsView() {
             const selectedGenre = genres.value; //indeholder den valgte genre, som man har valgt fra dropdown-menuen
